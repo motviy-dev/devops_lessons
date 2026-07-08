@@ -1,0 +1,19 @@
+#########################################################
+# Wordpress on Debian
+#########################################################
+---
+- hosts: all
+  vars_files:
+    - vars/default.yml
+
+  pre_tasks:
+    - name: Install prerequisites
+      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
+      become: true
+      tags: [ system ]
+
+  roles:
+    - wordpress
+    - mysql
+    - php
+    - wordpress
