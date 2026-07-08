@@ -1,0 +1,2 @@
+[myhosts]
+192.168.56.12 ansible_user=vagrant ansible_ssh_private_key_file=/home/matyalol/drupal_vm/.vagrant/machines/default/virtualbox/private_key
