@@ -1,0 +1,11 @@
+---
+galaxy_info:
+  author: Matvei
+  description: Install MySQL Server
+  license: MIT
+  min_ansible_version: "2.15"
+
+  role_name: mysql
+  namespace: student
+
+dependencies: []

@@ -1,0 +1,27 @@
+---
+- name: Install debconf-utils
+  ansible.builtin.apt:
+    name: debconf-utils
+    state: present
+    update_cache: true
+
+- name: Set noninteractive frontend
+  ansible.builtin.debconf:
+    name: mysql-server
+    question: mysql-server/root_password
+    value: ''
+    vtype: password
+
+- name: Install MySQL server
+  ansible.builtin.apt:
+    name: mysql-server
+    state: present
+    update_cache: true
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: Start MySQL service
+  ansible.builtin.service:
+    name: mysql
+    state: started
+    enabled: true

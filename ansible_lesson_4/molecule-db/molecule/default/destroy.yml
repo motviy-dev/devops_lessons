@@ -1,0 +1,11 @@
+---
+- name: Destroy
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Remove container
+      community.docker.docker_container:
+        name: ubuntu
+        state: absent

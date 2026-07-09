@@ -1,0 +1,16 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Check mysql package
+      ansible.builtin.package:
+        name: mysql-server
+        state: present
+
+    - name: Check mysql service
+      ansible.builtin.service:
+        name: mysql
+        state: started
